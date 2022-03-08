@@ -8,7 +8,7 @@ test.describe('Alert', () => {
       expect(dialog.message()).toContain('I am a JS Alert');
       await dialog.dismiss();
     });
-    await page.click('text=Log in');
+    await page.click('text=Click for JS Alert');
   });
 
 
