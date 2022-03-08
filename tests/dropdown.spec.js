@@ -18,7 +18,7 @@ test.describe('Select', () => {
 
   test('should select  option 2 from the select dropdown', async ({ page }) => {
       //select dropdown
-    await page.selectOption('#dropdown', '');
+    await page.selectOption('#dropdown', '2');
 
     //set value of selected
     const selectedValue = await page.$eval('#dropdown', e => e.value);
