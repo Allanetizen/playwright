@@ -15,7 +15,7 @@ test.describe('Checkboxes', () => {
     });
     
 
-    //assertion  value = 1
+    //assertion  
     expect(checkboxStates).toBeTruthy();
   });
   test('should uncheck all the checkboxes', async ({ page }) => {
@@ -28,7 +28,7 @@ test.describe('Checkboxes', () => {
    });
    
 
-   //assertion  value = 1
+   //assertion  
    expect(checkboxStates).toBeTruthy();
  });
 
