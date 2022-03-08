@@ -27,4 +27,22 @@ test.describe("Alert", () => {
     //confirmation assertion
     expect(answerText).toContain("You clicked: Ok");
   });
+
+
+  test('should trigger a confirmation with a message and cancel', async ({ page }) => {
+    page.on('dialog', async dialog => {
+      expect(dialog.message()).toContain('I am a JS Confirm');
+      await dialog.dismiss();
+    });
+    await page.click('text=Click for JS Confirm');
+    const $answer = await page.$('#result');
+    const answerText = await $answer.innerText();
+    expect(answerText).toContain('You clicked: Cancel');
+  });
+
+
+
+
+
+  
 });
