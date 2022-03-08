@@ -55,7 +55,21 @@ test.describe("Alert", () => {
     expect(answerText).toContain('You entered: Yes!');
   });
 
+  test('should trigger a prompt without a value', async ({ page }) => {
+    page.on('dialog', async dialog => {
+      expect(dialog.message()).toContain('I am a JS prompt');
+      //cancel dialog
+      await dialog.dismiss();
+    });
+    //click button
+    await page.click('text=Click for JS Prompt');
+    //result = answer variable
+    const $answer = await page.$('#result');
 
+    const answerText = await $answer.innerText();
+    //assertion for text
+    expect(answerText).toContain('You entered: null');
+  });
 
   
 });
