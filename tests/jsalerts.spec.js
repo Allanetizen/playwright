@@ -40,7 +40,20 @@ test.describe("Alert", () => {
     expect(answerText).toContain('You clicked: Cancel');
   });
 
+  test('should trigger a prompt with a message', async ({ page }) => {
+    page.on('dialog', async dialog => {
+      expect(dialog.message()).toContain('I am a JS prompt');
+      await dialog.accept('Yes!');
+    });
+    //click button
+    await page.click('text=Click for JS Prompt');
+    //result = answer variable
+    const $answer = await page.$('#result');
 
+    const answerText = await $answer.innerText();
+    //assertion for text
+    expect(answerText).toContain('You entered: Yes!');
+  });
 
 
 
