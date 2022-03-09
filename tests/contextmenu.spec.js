@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test('test', async ({ page }) => {
+test('Context menu', async ({ page }) => {
   // Go to https://the-internet.herokuapp.com/context_menu
   await page.goto('https://the-internet.herokuapp.com/context_menu');
   // Click h3:has-text("Context Menu")
