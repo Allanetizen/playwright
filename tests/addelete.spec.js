@@ -11,7 +11,6 @@ test.describe("Add/Remove Elements", () => {
     // Clicks add button.
 await page.locator('button:has-text("Add Element")').click();
 
-
 //expect a delete button
 expect(page.locator('.added-manually')).toBeTruthy();
 

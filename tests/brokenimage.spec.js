@@ -1,19 +1,18 @@
 
 const { test, expect } = require("@playwright/test");
-test('test', async ({ page }) => {
+test('test for broken image', async ({ page }) => {
   // Go to https://the-internet.herokuapp.com/broken_images
   await page.goto('https://the-internet.herokuapp.com/broken_images');
-  // Click img >> nth=1
-  await page.locator('img').nth(1).click();
-  // Click img >> nth=2
-  await page.locator('img').nth(2).click();
-  // Click img >> nth=3
-  await page.locator('img').nth(3).click();
-  //image
-//   const imgOne = document.querySelectorAll("img >> nth=1");
-
-//   //assertion
-//   await expect(imgOne).toBeFalsy();
+  
+  //assert for heading
+  await expect(page.locator('h3').locator("text=Broken Images")).toBeVisible();
+  //assert for visible image 3
+  await expect(page.locator('img').locator('nth=3')).toBeVisible();
+  
+  //assert for images not visible
+  await expect(page.locator('img').locator('img >> nth=1')).not.toBeVisible();
+  await expect(page.locator('img').locator('img >> nth=2')).not.toBeVisible();
+  
 
   
 });
