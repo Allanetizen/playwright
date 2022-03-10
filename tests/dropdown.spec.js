@@ -6,6 +6,10 @@ test.describe("Select", () => {
   });
 
   test("should select  option 1 from the select dropdown", async ({ page }) => {
+
+
+
+    
     //select dropdown
     await page.selectOption("#dropdown", "1");
 
