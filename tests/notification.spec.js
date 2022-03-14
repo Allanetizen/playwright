@@ -8,8 +8,7 @@ test('notification test', async ({ page }) => {
 
   
   await expect(page).toHaveURL('https://the-internet.herokuapp.com/notification_message_rendered');
-  // expect(await page.locator('#flash').textContent()).toContain(['Action successful'])
-
+   expect(await page.locator('#flash')).toBeTruthy();
   
 
 });

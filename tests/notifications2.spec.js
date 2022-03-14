@@ -7,7 +7,7 @@ test('notification after link click twice', async ({ page }) => {
   
     
     await page.locator('text=Click here').click();
-    // expect(await page.locator('#flash').textContent()).toContain(['Action successful',])
+    expect(await page.locator('#flash')).toBeTruthy();
    
     
   
