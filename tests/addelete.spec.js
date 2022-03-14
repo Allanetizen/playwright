@@ -6,16 +6,10 @@ test.describe("Add/Remove Elements", () => {
   });
 
   test("delete button should appear", async ({ page }) => {
- 
-    
     // Clicks add button.
-await page.locator('button:has-text("Add Element")').click();
+    await page.locator('button:has-text("Add Element")').click();
 
-//expect a delete button
-expect(page.locator('.added-manually')).toBeTruthy();
-
-
-
+    //expect a delete button
+    expect(page.locator(".added-manually")).toBeTruthy();
   });
- 
 });
