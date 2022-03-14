@@ -5,16 +5,22 @@ test('inputs page test', async ({ page }) => {
   // Go to https://the-internet.herokuapp.com/inputs
   await page.goto('https://the-internet.herokuapp.com/inputs');
 
- // Fill "2" on <input> input
- await page.fill('input', '2');
+// input value var
+const inputVal = await page.$("input[type='number']");
 
-  const $answer = await page.$('input[type="number"]');
-  const answerText = await $answer.innerText();
+//set val
+// const  value = await page.evaluate(el => el.textContent, element)
 
-  //assert value
-  
 
-  expect(answerText).toBe('2')
-//   expect(await page.locator('input[type="number"]')).toHaveValue('10')
+//add value
+await inputVal.type("1");
+
+//assert
+expect(inputVal).toBeTruthy();
+
+//assert for value
+
+// expect(value).toBe(1)
+
 
 });
